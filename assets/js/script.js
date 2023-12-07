@@ -9,7 +9,10 @@ const pkmnDetails3 = []
 const btn1_50 = document.querySelector('#btn1-50')
 const btn51_100 = document.querySelector('#btn51-100')
 const btn101_151 = document.querySelector('#btn101-151')
+const indexMusic = document.querySelector('#indexMusic')
 const selectAudio = document.querySelector('#selectAudio')
+const divSoundOnOff = document.querySelector('.soundOnOff')
+const iconSoundOff = document.querySelector('.soundOff')
 
 fetchPkmn1_50(pkmn1_50Api)
 fetchPkmn51_100(pkmn51_100Api)
@@ -36,14 +39,13 @@ async function fetchPkmn1_50(url) {
 
         // card sounds
         const cardsForAudio = document.querySelectorAll('.pkmnCard')
-        console.log(cardsForAudio)
 
         cardsForAudio.forEach(card => {
             card.addEventListener('mouseover', () => {
                 playSelectAudioCards()
             })
             card.addEventListener('mouseout', () => {
-                noPlay()
+                noPlay(selectAudio)
             })
         })
 
@@ -150,14 +152,13 @@ async function fetchPkmn51_100(url) {
 
         // card sounds
         const cardsForAudio = document.querySelectorAll('.pkmnCard')
-        console.log(cardsForAudio)
 
         cardsForAudio.forEach(card => {
             card.addEventListener('mouseover', () => {
                 playSelectAudioCards()
             })
             card.addEventListener('mouseout', () => {
-                noPlay()
+                noPlay(selectAudio)
             })
         })
 
@@ -279,14 +280,13 @@ async function fetchPkmn101_151(url) {
 
         // card sounds
         const cardsForAudio = document.querySelectorAll('.pkmnCard')
-        console.log(cardsForAudio)
 
         cardsForAudio.forEach(card => {
             card.addEventListener('mouseover', () => {
                 playSelectAudioCards()
             })
             card.addEventListener('mouseout', () => {
-                noPlay()
+                noPlay(selectAudio)
             })
         })
 
@@ -395,20 +395,38 @@ btn101_151.addEventListener('click', playSelectAudio)
 
 function playSelectAudio() {
     selectAudio.currentTime = 0
-    setVolume(1)
+    setVolume(1, selectAudio)
     selectAudio.play()
 }
 
 function playSelectAudioCards() {
     selectAudio.currentTime = 0
-    setVolume(0.4)
+    setPlaybackSpeed(1.4, selectAudio)
+    setVolume(0.4, selectAudio)
     selectAudio.play()
 }
 
-function noPlay() {
-    setVolume(0)
+divSoundOnOff.addEventListener('click', (event) => {
+    if (event.target.classList.contains('soundOff')) {
+        indexMusic.currentTime = 0;
+        setVolume(0.15, indexMusic);
+        indexMusic.play();
+        divSoundOnOff.innerHTML = '<i class="bi bi-volume-up-fill soundOn"></i>';
+    } else if (event.target.classList.contains('soundOn')) {
+        noPlay(indexMusic);
+        divSoundOnOff.innerHTML = '<i class="bi bi-volume-mute-fill soundOff"></i>';
+    }
+});
+
+function noPlay(audio) {
+    setVolume(0, audio)
+    setPlaybackSpeed(1, audio)
 }
 
-function setVolume(volume) {
-    selectAudio.volume = volume;
+function setPlaybackSpeed(speed, audio) {
+    audio.playbackRate = speed;
+}
+
+function setVolume(volume, audio) {
+    audio.volume = volume;
 }
