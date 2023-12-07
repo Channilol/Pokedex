@@ -408,7 +408,6 @@ function playSelectAudioCards() {
 
 divSoundOnOff.addEventListener('click', (event) => {
     if (event.target.classList.contains('soundOff')) {
-        indexMusic.currentTime = 0;
         setVolume(0.15, indexMusic);
         indexMusic.play();
         divSoundOnOff.innerHTML = '<i class="bi bi-volume-up-fill soundOn"></i>';
