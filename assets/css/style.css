@@ -1,0 +1,240 @@
+/* GENERIC */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Silkscreen:wght@400;700&display=swap');
+
+body {
+    background-image: url(../img/187210.jpg);
+    background-size: auto;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Silkscreen', sans-serif;
+    margin: 0;
+}
+
+
+/* HEADER */
+
+header {
+    padding: 5vh 5vw;
+    text-align: center;
+}
+
+header img {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* MAIN */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main h1 {
+    font-weight: bold;
+    margin: 0 0 5vh 0;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 5px;
+}
+
+#btnContainer {
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#btnContainer > button {
+    transition: transform 0.1s ease-in-out;
+}
+
+#btnContainer > button:hover {
+    transform: scale(1.2);
+}
+
+/* POKEMON CARDS */
+
+#pkmnCardsContainer {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.pkmnCard {
+    flex-basis: 45%;
+    margin: 5vh 0;
+    background-color: rgba(255,255,255,0.85);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+    transition: transform 0.1s ease-in-out;
+} 
+
+.pkmnCard:hover {
+    background-color: rgb(24, 129, 214, 0.9);
+    color: white;
+    border: 3px solid rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+.pkmnCard > p {
+    padding-left: 10px;
+}
+
+.pkmnCard h2 {
+    font-size: 1.2em;
+    padding-left: 10px;
+}
+
+.pkmnImg {
+    padding: 10px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.pkmnImg > img {
+    width: 100%;
+}
+
+.typesContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.typesContainer p {
+    text-align: center;
+    padding: 0 5px;
+    font-size: 0.9em;
+    color: white;
+}
+
+/* TYPES COLORS */
+
+.grassType {
+    background-color: #78c850;
+    border: 2px solid #4e8234;
+    border-radius: 10px;
+}
+
+.normalType {
+    background-color: #a8a878;
+    border: 2px solid #6d6d4e;
+    border-radius: 10px;
+}
+
+.fireType {
+    background-color: #f08030;
+    border: 2px solid #9c531f;
+    border-radius: 10px;
+}
+
+.fightingType {
+    background-color: #c03028;
+    border: 2px solid #7d1f1a;
+    border-radius: 10px;
+}
+
+.waterType {
+    background-color: #6890f0;
+    border: 2px solid #445e9c;
+    border-radius: 10px;
+}
+
+.flyingType {
+    background-color: #a890f0;
+    border: 2px solid #6d5e9c;
+    border-radius: 10px;
+}
+
+.poisonType {
+    background-color: #a040a0;
+    border: 2px solid #682a68;
+    border-radius: 10px;
+}
+
+.electricType {
+    background-color: #f8d030;
+    border: 2px solid #f8d030;
+    border-radius: 10px;
+}
+
+.groundType {
+    background-color: #e0c068;
+    border: 2px solid #927d44;
+    border-radius: 10px;
+}
+
+.psychicType {
+    background-color: #f85888;
+    border: 2px solid #a13959;
+    border-radius: 10px;
+}
+
+.rockType {
+    background-color: #b8a038;
+    border: 2px solid #786824;
+    border-radius: 10px;
+}
+
+.iceType {
+    background-color: #98d8d8;
+    border: 2px solid #98d8d8;
+    border-radius: 10px;
+}
+
+.bugType {
+    background-color: #a8b820;
+    border: 2px solid #6d7815;
+    border-radius: 10px;
+}
+
+.dragonType {
+    background-color: #7038f8;
+    border: 2px solid #4924a1;
+    border-radius: 10px;
+}
+
+.ghostType {
+    background-color: #705898;
+    border: 2px solid #493963;
+    border-radius: 10px;
+}
+
+.darkType {
+    background-color: #705848;
+    border: 2px solid #705848;
+    border-radius: 10px;
+}
+
+.steelType {
+    background-color: #b8b8d0;
+    border: 2px solid #787887;
+    border-radius: 10px;
+}
+
+.fairyType {
+    background-color: #ee99ac;
+    border: 2px solid #9b6470;
+    border-radius: 10px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width:768px) {
+    .pkmnCard {
+        flex-basis: 30%;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .pkmnCard {
+        flex-basis: 23%;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .pkmnCard {
+        flex-basis: 18%;
+    }
+}
