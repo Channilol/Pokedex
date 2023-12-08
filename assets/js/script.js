@@ -417,6 +417,9 @@ btn51_100.addEventListener('click', playSelectAudio)
 btn101_151.addEventListener('click', playSelectAudio)
 divToTop.addEventListener('click', playSelectAudio)
 
+divSoundOnOff.addEventListener('click', toggleIndexMusic)
+document.addEventListener('visibilitychange', toggleIndexMusic)
+
 function playSelectAudio() {
     selectAudioBtn.currentTime = 0
     setVolume(1, selectAudioBtn)
@@ -430,7 +433,29 @@ function playSelectAudioCards() {
     selectAudio.play()
 }
 
-divSoundOnOff.addEventListener('click', (event) => {
+function toggleIndexMusic(event) {
+    if (event.target.classList.contains('soundOff')) {
+        setVolume(0.15, indexMusic);
+        indexMusic.play();
+        divSoundOnOff.innerHTML = '<i class="bi bi-volume-up-fill soundOn"></i>';
+    } else if (event.target.classList.contains('soundOn')) {
+        noPlay(indexMusic);
+        divSoundOnOff.innerHTML = '<i class="bi bi-volume-mute-fill soundOff"></i>';
+    }
+};
+
+function handleVisibilityChange() {
+    if(document.visibilityState !== 'visible') {
+        noPlay(indexMusic)
+        divSoundOnOff.removeEventListener('click', toggleIndexMusic)
+    }
+    else {
+        setVolume(0.15, indexMusic);
+        divSoundOnOff.addEventListener('click', toggleIndexMusic)
+    }
+}
+
+/* divSoundOnOff.addEventListener('click', (event) => {
     if (event.target.classList.contains('soundOff')) {
         setVolume(0.15, indexMusic);
         indexMusic.play();
@@ -440,6 +465,15 @@ divSoundOnOff.addEventListener('click', (event) => {
         divSoundOnOff.innerHTML = '<i class="bi bi-volume-mute-fill soundOff"></i>';
     }
 });
+
+document.addEventListener('visibilitychange', () => {
+    if(document.visibilityState !== 'visible') {
+        noPlay(indexMusic)
+    }
+    else {
+
+    }
+}) */
 
 function noPlay(audio) {
     setVolume(0, audio)
