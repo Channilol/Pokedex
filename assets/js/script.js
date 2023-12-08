@@ -41,10 +41,12 @@ async function fetchPkmn1_50(url) {
         const cardsForAudio = document.querySelectorAll('.pkmnCard')
 
         cardsForAudio.forEach(card => {
-            card.addEventListener('mouseover', () => {
-                playSelectAudioCards()
+            card.addEventListener('mouseenter', (event) => {
+                if (event.currentTarget.classList.contains('pkmnCard')) {
+                    playSelectAudioCards();
+                }
             })
-            card.addEventListener('mouseout', () => {
+            card.addEventListener('mouseleave', () => {
                 noPlay(selectAudio)
             })
         })
@@ -154,10 +156,12 @@ async function fetchPkmn51_100(url) {
         const cardsForAudio = document.querySelectorAll('.pkmnCard')
 
         cardsForAudio.forEach(card => {
-            card.addEventListener('mouseover', () => {
-                playSelectAudioCards()
+            card.addEventListener('mouseenter', (event) => {
+                if (event.currentTarget.classList.contains('pkmnCard')) {
+                    playSelectAudioCards();
+                }
             })
-            card.addEventListener('mouseout', () => {
+            card.addEventListener('mouseleave', () => {
                 noPlay(selectAudio)
             })
         })
@@ -265,10 +269,10 @@ async function fetchPkmn101_151(url) {
         let noemiPkmn = ` 
         <div class="pkmnCard">
             <div class="pkmnImg">
-                <img src="assets/img/noemiPokemon.jpg" alt="noemi">
+                <img class="pkmnImgs" src="assets/img/noemiPokemon.jpg" alt="noemi">
             </div>
-            <p>#152 LEGGENDARIOH</p>
-            <h2>NOEMI</h2>
+            <p>#152 leggendariah</p>
+            <h2>noemi</h2>
             <div class="typesContainer">
                 <p class="pkmnType">fairy</p>
                 <p class="pkmnType">ice</p>
@@ -278,14 +282,31 @@ async function fetchPkmn101_151(url) {
 
         pkmnsCardsContainer.innerHTML += noemiPkmn
 
+        let browniePkmn = ` 
+        <div class="pkmnCard">
+            <div class="pkmnImg">
+                <img class="pkmnImgs" src="assets/img/browniePokemon.jpg" alt="brownie">
+            </div>
+            <p>#153 demonio</p>
+            <h2>brownie</h2>
+            <div class="typesContainer">
+                <p class="pkmnType">dark</p>
+                <p class="pkmnType">fighting</p>
+            </div>
+        </div>
+        `
+        pkmnsCardsContainer.innerHTML += browniePkmn
+
         // card sounds
         const cardsForAudio = document.querySelectorAll('.pkmnCard')
 
         cardsForAudio.forEach(card => {
-            card.addEventListener('mouseover', () => {
-                playSelectAudioCards()
+            card.addEventListener('mouseenter', (event) => {
+                if (event.currentTarget.classList.contains('pkmnCard')) {
+                    playSelectAudioCards();
+                }
             })
-            card.addEventListener('mouseout', () => {
+            card.addEventListener('mouseleave', () => {
                 noPlay(selectAudio)
             })
         })
@@ -375,7 +396,7 @@ function createCard(pokemon) {
     return ` 
     <div class="pkmnCard">
         <div class="pkmnImg">
-            <img src="${pokemon.sprites.front_default}" alt=${pokemon.name}>
+            <img class="pkmnImgs" src="${pokemon.sprites.front_default}" alt=${pokemon.name}>
         </div>
         <p>#${pokemon.id}</p>
         <h2>${pokemon.name}</h2>

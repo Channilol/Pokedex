@@ -35,6 +35,7 @@ main {
 main h1 {
     font-weight: bold;
     margin: 0 0 5vh 0;
+    padding: 0 10px;
     background-color: rgba(255,255,255,0.4);
     border-radius: 5px;
 }
