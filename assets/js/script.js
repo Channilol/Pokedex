@@ -11,8 +11,10 @@ const btn51_100 = document.querySelector('#btn51-100')
 const btn101_151 = document.querySelector('#btn101-151')
 const indexMusic = document.querySelector('#indexMusic')
 const selectAudio = document.querySelector('#selectAudio')
+const selectAudioBtn = document.querySelector('#selectAudioBtn')
 const divSoundOnOff = document.querySelector('.soundOnOff')
 const iconSoundOff = document.querySelector('.soundOff')
+const divToTop = document.querySelector('.divToTop')
 
 fetchPkmn1_50(pkmn1_50Api)
 fetchPkmn51_100(pkmn51_100Api)
@@ -413,11 +415,12 @@ function createCard(pokemon) {
 btn1_50.addEventListener('click', playSelectAudio)
 btn51_100.addEventListener('click', playSelectAudio)
 btn101_151.addEventListener('click', playSelectAudio)
+divToTop.addEventListener('click', playSelectAudio)
 
 function playSelectAudio() {
-    selectAudio.currentTime = 0
-    setVolume(1, selectAudio)
-    selectAudio.play()
+    selectAudioBtn.currentTime = 0
+    setVolume(1, selectAudioBtn)
+    selectAudioBtn.play()
 }
 
 function playSelectAudioCards() {

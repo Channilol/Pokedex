@@ -78,6 +78,32 @@ main h1 {
     font-size: 2em;
 }
 
+/* TO TOP ARROW */
+
+.divToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+    border: 4px solid rgba(0,0,0,0.2);
+    border-radius: 15px;
+    transition: background-color 0.2s ease;
+    transition: transform 0.1s ease-in-out;
+}
+
+.divToTop:hover {
+    transform: scale(1.1);
+    background-color: rgba(255,255,255,0.7);
+}
+
+.divToTop i {
+    cursor: pointer;
+    color: rgb(41, 41, 41);
+    font-size: 2em;
+}
+
 /* POKEMON CARDS */
 
 #pkmnCardsContainer {
