@@ -285,7 +285,7 @@ async function fetchPkmn101_151(url) {
         let browniePkmn = ` 
         <div class="pkmnCard">
             <div class="pkmnImg">
-                <img class="pkmnImgs" src="assets/img/browniePokemon.jpg" alt="brownie">
+                <img class="pkmnImgs" src="assets/img/BrowniePokemon.jpg" alt="brownie">
             </div>
             <p>#153 demonio</p>
             <h2>brownie</h2>
